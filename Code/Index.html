@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive and Zestron</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+</head>
+<body>
+    <body>
+        <div class="container">
+            <main>
+                <div class="zest">
+                    <canvas id="rive-canvas" width="1000px" height="5000px"></canvas>
+                </div>
+                <div class="quiz">
+                    <canvas id="quiz-canvas" width="1000px" height="625px"></canvas>  
+                </div>
+                <div class="button">
+                    <canvas id="btn-canvas" width="1000" height="500"> <a> href</a></canvas>  
+                </a>
+            </main>
+        </div>
+    </body>
+    
+
+
+
+<script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+<script>
+    const riveInstance1 = new rive.Rive({
+        src: "jump1.riv",
+        canvas: document.getElementById("rive-canvas"),
+        autoplay: true,
+        stateMachines: "OverallAnimations",
+        onLoad: () => {
+            riveInstance1.resizeDrawingSurfaceToCanvas();
+            setupScrollListener(riveInstance1);
+        },
+    });
+
+    const riveInstance2 = new rive.Rive({
+        src: "Rive1.riv",
+        canvas: document.getElementById("quiz-canvas"),
+        autoplay: true,
+        stateMachines: "Quiz1",
+        onLoad: () => {
+            riveInstance2.resizeDrawingSurfaceToCanvas();
+        },
+    });
+
+
+    const riveInstance3 = new rive.Rive({
+        src: "btn2.riv",
+        canvas: document.getElementById("btn-canvas"),
+        autoplay: true,
+        stateMachines: "State Machine 1",
+        onLoad: () => {
+            riveInstance2.resizeDrawingSurfaceToCanvas();
+        },
+    });
+
+    function setupScrollListener(riveInstance) {
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPct = scrollPosition / maxScroll * 100; // Percentage (0 to 100)
+
+            const inputs = riveInstance.stateMachineInputs('OverallAnimations');
+            const scrllpctInput = inputs.find(input => input.name === 'ScrllPct');
+            if (scrllpctInput) {
+                scrllpctInput.value = scrollPct;
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

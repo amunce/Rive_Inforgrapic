@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.container{
+    background-image: url(/Design/BG-3.svg);
+  background-repeat: no-repeat;
+  background-position: top center; /* Adjust as needed */
+  background-size: contain; /* Optional: adjust to your preference */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+
+
+.zest{
+    margin-top: -5%;
+    
+
+}
+.quiz {
+    position: absolute;
+    top: calc(40%); /* Half the height of the Rive canvas minus half the height of the quiz canvas */
+    left: 0;
+}
+
+
+ 
+
+
+.bottom-text{
+    color:white;
+    text-align: center;
+    display: block; /* Ensure it's a block-level element */
+   
+    color: white; /* Set a color */
+    font-size: 30px; /* Set a font size */
+    /* Add other necessary styles */
+    position: fixed;
+    top: 57%;/* Half the height of the Rive canvas minus half the height of the quiz canvas */
+    max-width: 55%;
+    left: 30%;
+
+}
+  canvas {
+    max-width: 100%; /* Ensure canvas does not exceed container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+
+  .button{
+position: absolute;
+top:63%;
+
+
+  }
